@@ -19,7 +19,7 @@ namespace ConsoleApp5
 
                 for (int j = 0; j < 100000; j++)
                 {
-                    
+
                     {
                         Console.WriteLine("Lychrel?");
                         break;
