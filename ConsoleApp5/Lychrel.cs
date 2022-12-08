@@ -28,7 +28,7 @@ namespace ConsoleApp5
                     string res1 = Convert.ToString(res);
                     if (massa1 == int.Parse(num))
                     {
-                        Console.WriteLine("lychrel?");
+                        
                         break;
                     }
                     else
