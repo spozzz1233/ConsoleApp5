@@ -27,6 +27,7 @@ namespace ConsoleApp5
                     res = massa1 + int.Parse(num);
                     string res1 = Convert.ToString(res);
                     if (massa1 == int.Parse(num))
+                        asdasdasdasdasdasdasd
                     {
                         Console.WriteLine("Lychrel?");
                         break;
