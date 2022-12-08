@@ -19,7 +19,15 @@ namespace ConsoleApp5
 
                 for (int j = 0; j < 100000; j++)
                 {
-
+                    char[] Massiv = num.ToCharArray();
+                    char[] Mass = Massiv;
+                    Array.Reverse(Mass);
+                    string massa = new string(Mass);
+                    int massa1 = Convert.ToInt32(massa);
+                    res = massa1 + int.Parse(num);
+                    string res1 = Convert.ToString(res);
+                    if (massa1 == int.Parse(num))
+                        asdasdasdasdasdasdasd
                     {
                         Console.WriteLine("Lychrel?");
                         break;
