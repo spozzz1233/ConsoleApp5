@@ -27,9 +27,9 @@ namespace ConsoleApp5
                     res = massa1 + int.Parse(num);
                     string res1 = Convert.ToString(res);
                     if (massa1 == int.Parse(num))
-                        
+                     
                     {
-                        Console.WriteLine("фархад лох");
+                        Console.WriteLine("Lychrel?");
                         break;
                     }
                     else
