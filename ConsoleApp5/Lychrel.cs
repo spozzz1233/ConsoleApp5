@@ -8,40 +8,56 @@ namespace ConsoleApp5
 {
     internal class Lychrel
     {
-        private static bool isLychrel(long number)
-        {
-            bool a = true;
-            for (int i = 0; i < 20; i++)
-            {
-                number = number + reverse(number);
-                if (isPalindrome(number))
-                    a = false;
-                return a;
-
-            }
-            return a;
-        }
-        private static bool isPalindrome(long number)
-        {
-            return number == reverse(number);
-        }
-        private static long reverse(long number)
-        {
-            long reverse = 0;
-
-            while (number > 0)
-            {
-                long remainder = number % 10;
-                reverse = (reverse * 10) + remainder;
-                number = number / 10;
-            }
-            return reverse;
-        }
-
         public static void lychrel()
         {
-            long number = long.Parse(Console.ReadLine());
-            Console.Write(number + "Это число лихрела?" + isLychrel(number));
+            int q = int.Parse(Console.ReadLine());
+            int[] val = new int[q];
+            for (int i = 0; i < q; i++)
+            {
+                string num = Console.ReadLine();
+                int res = 0, c = 0, res2 = 0;
+
+                for (int j = 0; j < 100000; j++)
+                {
+                    char[] Massiv = num.ToCharArray();
+                    char[] Mass = Massiv;
+                    Array.Reverse(Mass);
+                    string massa = new string(Mass);
+                    int massa1 = Convert.ToInt32(massa);
+                    res = massa1 + int.Parse(num);
+                    string res1 = Convert.ToString(res);
+                    if (massa1 == int.Parse(num))
+                    {
+                        Console.WriteLine("Lychrel?");
+                        break;
+                    }
+                    else
+                    {
+                        do
+                        {
+                            char[] Massi = res1.ToCharArray();
+                            char[] Mas = Massi;
+                            Array.Reverse(Mas);
+                            string mass = new string(Mas);
+                            int massa2 = Convert.ToInt32(mass);
+                            res2 = res + massa2;
+                            c++;
+                        } while (massa1 != int.Parse(Massiv));
+
+                    }
+
+                }
+                if (c == 0 && res2 == 0)
+                {
+                    Console.Write("");
+                }
+                else
+                {
+                    Console.Write(c + " " + res2);
+                }
+                val[i] = int.Parse(Console.ReadLine());
+            }
+
         }
     }
 }
