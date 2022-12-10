@@ -12,7 +12,6 @@ namespace ConsoleApp5
         {
             while (true)
             {
-                Console.WriteLine("Введите число");
                 int vod = int.Parse(Console.ReadLine());
                 if (vod == 0)
                 {
@@ -43,7 +42,7 @@ namespace ConsoleApp5
                     }
                     if (result == vod)
                     {
-                        Console.WriteLine($"{vod} = {masiv[j]}");
+                        Console.WriteLine(masiv[j]);
                         break;
                     }
 

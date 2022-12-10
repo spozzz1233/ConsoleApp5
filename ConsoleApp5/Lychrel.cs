@@ -1,64 +1,71 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp5
 {
     internal class Lychrel
     {
+        private static Int64 reverse(Int64 number)
+        {
+            Int64 reverse = 0;
+
+            while (number > 0)
+            {
+                Int64 remainder = number % 10;
+                reverse = (reverse * 10) + remainder;
+                number = number / 10;
+            }
+            return reverse;
+        }
         public static void lychrel()
         {
             int q = int.Parse(Console.ReadLine());
-            int[] val = new int[q];
+            string[] Massiv = new string[q];
+            string[] kol = new string[q];
+            int c = 0, j = 0;
             for (int i = 0; i < q; i++)
             {
-                string num = Console.ReadLine();
-                int res = 0, c = 0, res2 = 0;
 
-                for (int j = 0; j < 100000; j++)
+                bool stop = true;
+                Int64 chislo = Convert.ToInt64(Console.ReadLine());
+                Int64 b = reverse(chislo);
+                do
                 {
-                    char[] Massiv = num.ToCharArray();
-                    char[] Mass = Massiv;
-                    Array.Reverse(Mass);
-                    string massa = new string(Mass);
-                    int massa1 = Convert.ToInt32(massa);
-                    res = massa1 + int.Parse(num);
-                    string res1 = Convert.ToString(res);
-                    if (massa1 == int.Parse(num))
-
+                    Int64 res = chislo + b;
+                    Int64 sum = res;
+                    c = 1;
+                repeat:
+                    if (sum > 1000000000)
                     {
-                        Console.WriteLine("Lychrel?");
-                        break;
+                        Massiv[i] = "Lychrel?";
+                        kol[i] = "";
+                        stop = false;
+                    }
+                    else if (sum == reverse(sum))
+                    {
+                        Massiv[i] = Convert.ToString(sum);
+                        stop = false;
+
                     }
                     else
                     {
-                        do
-                        {
-                            char[] Massi = res1.ToCharArray();
-                            char[] Mas = Massi;
-                            Array.Reverse(Mas);
-                            string mass = new string(Mas);
-                            int massa2 = Convert.ToInt32(mass);
-                            res2 = res + massa2;
-                            c++;
-                        } while (massa1 != int.Parse(Massiv));
-
+                        sum = sum + reverse(sum);
+                        kol[i] = Convert.ToString(++c);
+                        goto repeat;
                     }
+                } while (stop);
 
-                }
-                if (c == 0 && res2 == 0)
+            }
+            for (int i = 0; i < q; i++)
+            {
+                if (kol[i] == "")
                 {
-                    Console.Write("");
+                    Console.WriteLine(Massiv[i]);
                 }
                 else
                 {
-                    Console.Write(c + " " + res2);
+                    Console.WriteLine(kol[i] + " " + Massiv[i]);
                 }
-                val[i] = int.Parse(Console.ReadLine());
             }
-
         }
     }
 }

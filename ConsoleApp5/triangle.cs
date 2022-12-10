@@ -1,7 +1,7 @@
 ﻿using System;
 class Triangle
 {
-    static void Main()
+    public static void triangle()
     {
         int stop = int.Parse(Console.ReadLine());
         for (int j = 0; j < stop; j++)
